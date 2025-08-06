@@ -1,0 +1,62 @@
+{
+  "doc_type": "pipeline",
+  "pipelines": [{
+    "id": "ff1dcafa-1fb9-4060-be83-8a69fc3c44e7",
+    "nodes": [{
+      "id": "automl",
+      "op": "wml-http-score",
+      "outputs": [{
+        "id": "automl"
+      }],
+      "parameters": {
+        "output_logs": true,
+        "incremental_learning": false,
+        "input_file_separator": ",",
+        "stage_flag": true,
+        "optimization": {
+          "learning_type": "regression",
+          "label": "NO_OF_ROAD_WORKS_COMPLETED",
+          "global_stage_include_batched_ensemble_estimators": ["BatchedTreeEnsembleRegressor(ExtraTreesRegressor)", "BatchedTreeEnsembleRegressor(LGBMRegressor)", "BatchedTreeEnsembleRegressor(RandomForestRegressor)", "BatchedTreeEnsembleRegressor(SnapBoostingMachineRegressor)", "BatchedTreeEnsembleRegressor(SnapRandomForestRegressor)", "BatchedTreeEnsembleRegressor(XGBRegressor)"],
+          "max_num_daub_ensembles": 2,
+          "scorer_for_ranking": "neg_root_mean_squared_error",
+          "feature_selector_mode": "auto",
+          "compute_pipeline_notebooks_flag": true,
+          "run_cognito_flag": true,
+          "daub_adaptive_subsampling_max_mem_usage": 15000000000,
+          "holdout_param": 0.1,
+          "cv_num_folds": 3
+        },
+        "wml_status": {
+          "url": "https://au-syd.ml.cloud.ibm.com/v4_private/trainings"
+        },
+        "storage": {
+          "exchange": "training-prod",
+          "url": "amqps://ibm_cloud_1de5ae32_23c1_45ae_8f30_10ea406d60ee:c033a312f5bfaec05a113262768d27a185adb5beb4540310b6ae61527b505a3b@f5e39c4a-11a7-4bfd-95d4-3cad46f1dbde.bsbaodss0vb4fikkn2bg.databases.appdomain.cloud:32009"
+        },
+        "n_parallel_data_connections": 4,
+        "one_vs_all_file": true
+      },
+      "runtime_ref": "autoai",
+      "type": "execution_node"
+    }],
+    "runtime_ref": "hybrid"
+  }],
+  "primary_pipeline": "ff1dcafa-1fb9-4060-be83-8a69fc3c44e7",
+  "runtimes": [{
+    "app_data": {
+      "wml_data": {
+        "hardware_spec": {
+          "id": "a6c4923b-b8e4-444c-9f43-8a7ec3020110",
+          "name": "L"
+        },
+        "software_spec": {
+          "name": "autoai-kb_rt24.1-py3.11"
+        }
+      }
+    },
+    "id": "autoai",
+    "name": "auto_ai.kb",
+    "version": "3.1.437"
+  }],
+  "version": "2.0"
+}
