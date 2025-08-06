@@ -66,6 +66,10 @@ OpenAI / HuggingFace Transformers (for LLM integration)
 
 📷 Screenshots
 Include screenshots or GIFs of your app's UI, chatbot in action, or dashboard
+<img width="1908" height="895" alt="Screenshot 2025-08-06 143147" src="https://github.com/user-attachments/assets/73fbdafc-da40-4e13-8d21-dadb2ec8f591" />
+<img width="1905" height="845" alt="image" src="https://github.com/user-attachments/assets/34858a1d-92ea-4ace-b4dc-e6c14062f99a" />
+
+
 
 🛠️ Future Improvements
 🔐 Add user login & profile-based query personalization
